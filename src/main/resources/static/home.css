@@ -1,0 +1,38 @@
+.bag{
+    background-image: linear-gradient(to right, red, white, lightgreen);
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+}
+
+
+.iau{
+    text-align: center;
+}
+
+table, th, td {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid black;
+}
+table{
+    width: 100%;
+}
+
+.vert{
+    writing-mode: vertical-lr;
+    -ms-writing-mode: tb-rl;
+    transform: rotate(180deg); 
+}
+
+.text{
+    text-align: center;
+    background-color: yellow;
+    font-weight: bold;
+}
