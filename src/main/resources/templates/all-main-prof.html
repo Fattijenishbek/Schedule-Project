@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+<div class="container mt-5">
+    <h1>See all data</h1>
+    <div class="container mt-5 mb-5 box">
+        <div class="container mt-5 mb-5">
+            <nav class="my-2 my-md-0 mr-md-3">
+                <button class="btn btn-success active"><a class="p-2 text-dark" href="/all/professors">Professors</a></button>
+                <button class="btn btn-success"><a class="p-2 text-dark" href="/all/subjects">Subjects</a></button>
+                <button class="btn btn-success"><a class="p-2 text-dark" href="/all/groups">Groups</a></button>
+            </nav>
+        </div>
+    <div th:each="el : ${professors}" class="alert alert-info mt-5">
+        <h3 th:text="${el.name}"></h3>
+        <h3 th:text="${el.email}"></h3>
+        <a th:href="'/all/professors/'+${el.id}">More</a>
+    </div>
+    </div>
+</div>
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>
