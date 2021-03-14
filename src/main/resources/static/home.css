@@ -36,3 +36,23 @@ table{
     background-color: yellow;
     font-weight: bold;
 }
+
+@media screen and (max-width: 780px){
+    .box{
+        border: 1px solid black;
+        overflow: scroll;
+        height: 100%;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .box{
+        border: 1px solid black;
+        overflow: scroll;
+        height: 100%;
+        width: 800px;
+    }
+}
+
+
