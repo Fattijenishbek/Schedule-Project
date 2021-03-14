@@ -15,15 +15,15 @@
     <div class="container mt-5 mb-5 box">
         <div class="container mt-5 mb-5">
             <nav class="my-2 my-md-0 mr-md-3">
-                <button class="btn btn-success active"><a class="p-2 text-dark" href="/professors">Professors</a></button>
-                <button class="btn btn-success"><a class="p-2 text-dark" href="/subjects">Subjects</a></button>
+                <button class="btn btn-success"><a class="p-2 text-dark" href="/professors">Professors</a></button>
+                <button class="btn btn-success active"><a class="p-2 text-dark" href="/subjects">Subjects</a></button>
                 <button class="btn btn-success"><a class="p-2 text-dark" href="/groups">Groups</a></button>
             </nav>
         </div>
-        <div th:each="el : ${professors}" class="alert alert-info mt-5">
+        <div th:each="el : ${subjects}" class="alert alert-info mt-5">
             <h3 th:text="${el.name}"></h3>
-            <h3 th:text="${el.email}"></h3>
-            <a th:href="'/professors/'+${el.id}">More</a>
+            <h3 th:text="${el.credits}"></h3>
+            <a th:href="'/subjects/'+${el.id}">More</a>
         </div>
     </div>
 </div>
