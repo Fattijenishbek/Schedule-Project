@@ -1,7 +1,9 @@
 package com.aiu.schedule.controllers;
 
+import com.aiu.schedule.models.Groups;
 import com.aiu.schedule.models.Professor;
 import com.aiu.schedule.models.Subject;
+import com.aiu.schedule.repo.GroupRepository;
 import com.aiu.schedule.repo.ProfessorRepository;
 import com.aiu.schedule.repo.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ public class AddController {
     private ProfessorRepository professorRepository;
     @Autowired
     private SubjectRepository subjectRepository;
+    @Autowired
+    private GroupRepository groupRepository;
 
     @GetMapping("/all")
     public String allMain(Model model){
@@ -35,5 +39,12 @@ public class AddController {
         Iterable<Subject> subjects = subjectRepository.findAll();
         model.addAttribute("subjects", subjects);
         return "all-main-sub";
+    }
+
+    @GetMapping("/groups")
+    public String allGroup(Model model){
+        Iterable<Groups> groups = groupRepository.findAll();
+        model.addAttribute("groups", groups);
+        return "all-main-group";
     }
 }
