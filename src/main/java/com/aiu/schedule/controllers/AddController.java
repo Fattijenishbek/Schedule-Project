@@ -53,4 +53,19 @@ public class AddController {
         model.addAttribute("title", "All all");
         return "add";
     }
+
+    @GetMapping("/professors-add")
+    public String addProf(Model model){
+        return "add-prof";
+    }
+
+    @GetMapping("/subjects-add")
+    public String addSub(Model model){
+        return "add-sub";
+    }
+
+    @GetMapping("/groups-add")
+    public String addGroup(Model model){
+        return "add-group";
+    }
 }

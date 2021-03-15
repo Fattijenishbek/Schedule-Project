@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"/>
+    <title>All data</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -11,15 +11,21 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <div class="container mt-5">
-    <h1>Add data</h1>
+    <h1>See all data</h1>
     <div class="container mt-5 mb-5 box">
         <div class="container mt-5 mb-5">
             <nav class="my-2 my-md-0 mr-md-3">
                 <button class="btn btn-success active"><a class="p-2 text-dark" href="/professors-add">Professors</a></button>
-                <button class="btn btn-success "><a class="p-2 text-dark" href="/subjects-add">Subjects</a></button>
+                <button class="btn btn-success"><a class="p-2 text-dark" href="/subjects-add">Subjects</a></button>
                 <button class="btn btn-success"><a class="p-2 text-dark" href="/groups-add">Groups</a></button>
             </nav>
         </div>
+        <h1>Professor</h1>
+        <form action="/blog/add" method="post">
+            <input type="text" name="name" placeholder="Name and Surname" class="form-control"><br>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"><br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
     </div>
 </div>
 <div th:insert="blocks/footer::footer"></div>
