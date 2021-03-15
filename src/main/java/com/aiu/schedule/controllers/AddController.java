@@ -47,4 +47,10 @@ public class AddController {
         model.addAttribute("groups", groups);
         return "all-main-group";
     }
+
+    @GetMapping("/add")
+    public String addMain(Model model){
+        model.addAttribute("title", "All all");
+        return "add";
+    }
 }
