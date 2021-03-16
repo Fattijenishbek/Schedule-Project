@@ -55,4 +55,17 @@ table{
     }
 }
 
+.data{
+    border: 1px solid lightgreen;
+    height: 40px;
+    width: 300px;
+    margin-bottom: 5px;
+
+}
+
+span > a{
+    position: relative;
+    margin-left: 50%;
+}
+
 

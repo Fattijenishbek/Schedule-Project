@@ -12,6 +12,13 @@ public class Groups {
     private Long id;
     private String groups;
 
+    public Groups() {
+    }
+
+    public Groups(String groups) {
+        this.groups = groups;
+    }
+
     public Long getId() {
         return id;
     }

@@ -22,7 +22,6 @@
         </div>
         <div th:each="el : ${subjects}" class="alert alert-info mt-5">
             <h3 th:text="${el.name}"></h3>
-            <h3 th:text="${el.credits}"></h3>
             <a th:href="'/subjects/'+${el.id}">More</a>
         </div>
     </div>

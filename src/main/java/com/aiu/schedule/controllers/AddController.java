@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AddController {
@@ -23,7 +25,12 @@ public class AddController {
 
     @GetMapping("/all")
     public String allMain(Model model){
-        model.addAttribute("title", "All all");
+        Iterable<Professor> professors = professorRepository.findAll();
+        model.addAttribute("professors", professors);
+        Iterable<Subject> subjects = subjectRepository.findAll();
+        model.addAttribute("subjects", subjects);
+        Iterable<Groups> groups = groupRepository.findAll();
+        model.addAttribute("groups", groups);
         return "all";
     }
 
@@ -67,5 +74,26 @@ public class AddController {
     @GetMapping("/groups-add")
     public String addGroup(Model model){
         return "add-group";
+    }
+
+    @PostMapping("/professors-add")
+    public String addPostProf(@RequestParam String name, @RequestParam String email, Model model){
+        Professor professor = new Professor(name, email);
+        professorRepository.save(professor);
+        return "redirect:/professors";
+    }
+
+    @PostMapping("/subjects-add")
+    public String addPostSub(@RequestParam String name, Model model){
+        Subject subject = new Subject(name);
+        subjectRepository.save(subject);
+        return "redirect:/subjects";
+    }
+
+    @PostMapping("/groups-add")
+    public String addPostGroup(@RequestParam String name, Model model){
+        Groups groups = new Groups(name);
+        groupRepository.save(groups);
+        return "redirect:/groups";
     }
 }

@@ -11,7 +11,12 @@ public class Subject {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private int credits;
+    public Subject() {
+    }
+
+    public Subject(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -29,11 +34,4 @@ public class Subject {
         this.name = name;
     }
 
-    public int getCredits() {
-        return credits;
-    }
-
-    public void setCredits(int credits) {
-        this.credits = credits;
-    }
 }

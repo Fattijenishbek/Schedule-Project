@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"/>
+    <title>All data</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -19,6 +19,26 @@
                 <button class="btn btn-success "><a class="p-2 text-dark" href="/subjects">Subjects</a></button>
                 <button class="btn btn-success"><a class="p-2 text-dark" href="/groups">Groups</a></button>
             </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-4">
+            <h2 >Professor</h2>
+            <div th:each="el:${professors}" >
+                <p th:text="${el.name}" class="data"></p>
+            </div>
+        </div>
+        <div  class="col-md-6 col-lg-4 col-xl-4">
+            <h2>Subjects</h2>
+            <div th:each="el : ${subjects}">
+                <p th:text="${el.name}" class="data"></p>
+            </div>
+        </div>
+        <div  class="col-md-6 col-lg-4 col-xl-4">
+            <h2>Groups</h2>
+            <div th:each="el:${groups}">
+                <p th:text="${el.groups}" class="data"></p>
+            </div>
         </div>
     </div>
 </div>

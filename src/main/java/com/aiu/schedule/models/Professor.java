@@ -14,6 +14,14 @@ public class Professor {
 
     private String name, email;
 
+    public Professor() {
+    }
+
+    public Professor(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }
