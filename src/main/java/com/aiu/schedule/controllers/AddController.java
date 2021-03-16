@@ -6,6 +6,7 @@ import com.aiu.schedule.models.Subject;
 import com.aiu.schedule.repo.GroupRepository;
 import com.aiu.schedule.repo.ProfessorRepository;
 import com.aiu.schedule.repo.SubjectRepository;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -123,5 +124,21 @@ public class AddController {
         professor.ifPresent(res::add);
         model.addAttribute("professor", res);
         return "prof-edit";
+    }
+
+    @PostMapping("/professors/{id}/edit")
+    public String addProfUdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String email, Model model) throws NotFoundException {
+        Professor professor = professorRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
+        professor.setName(name);
+        professor.setEmail(email);
+        professorRepository.save(professor);
+        return "redirect:/professors";
+    }
+
+    @PostMapping("/professors/{id}/remove")
+    public String addProfDelete(@PathVariable(value = "id") long id, Model model) throws NotFoundException {
+        Professor professor = professorRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
+        professorRepository.delete(professor);
+        return "redirect:/professors";
     }
 }
