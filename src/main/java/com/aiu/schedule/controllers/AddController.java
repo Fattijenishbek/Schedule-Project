@@ -10,8 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class AddController {
@@ -95,5 +99,29 @@ public class AddController {
         Groups groups = new Groups(name);
         groupRepository.save(groups);
         return "redirect:/groups";
+    }
+
+    @GetMapping("/professors/{id}")
+    public String allProfDetail(@PathVariable(value = "id") long id, Model model) {
+        if(!professorRepository.existsById(id)){
+            return "redirect:/all-main-prof";
+        }
+        Optional<Professor> professor = professorRepository.findById(id);
+        ArrayList<Professor> res = new ArrayList<>();
+        professor.ifPresent(res::add);
+        model.addAttribute("professor", res);
+        return "prof-details";
+    }
+
+    @GetMapping("/professors/{id}/edit")
+    public String allProfEdit(@PathVariable(value = "id") long id, Model model) {
+        if(!professorRepository.existsById(id)){
+            return "redirect:/all-main-prof";
+        }
+        Optional<Professor> professor = professorRepository.findById(id);
+        ArrayList<Professor> res = new ArrayList<>();
+        professor.ifPresent(res::add);
+        model.addAttribute("professor", res);
+        return "prof-edit";
     }
 }
