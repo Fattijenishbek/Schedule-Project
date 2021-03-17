@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>All data</title>
+    <title>Edit data</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -11,21 +11,20 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <div class="container mt-5">
-    <h1>See all data</h1>
+    <h1>Edit data</h1>
     <div class="container mt-5 mb-5 box">
         <div class="container mt-5 mb-5">
             <nav class="my-2 my-md-0 mr-md-3">
-                <button class="btn btn-success active"><a class="p-2 text-dark" href="/professors">Professors</a></button>
-                <button class="btn btn-success"><a class="p-2 text-dark" href="/subjects">Subjects</a></button>
-                <button class="btn btn-success"><a class="p-2 text-dark" href="/groups">Groups</a></button>
+                <button class="btn btn-success active"><a class="p-2 text-dark" href="/professors-add">Professors</a></button>
+                <button class="btn btn-success"><a class="p-2 text-dark" href="/subjects-add">Subjects</a></button>
+                <button class="btn btn-success"><a class="p-2 text-dark" href="/groups-add">Groups</a></button>
             </nav>
         </div>
-        <div th:each="el : ${professor}" class="alert alert-info mt-5">
-            <h3 th:text="${el.name}"></h3>
-            <h3 th:text="${el.email}" style="color: black; font-size: medium" ></h3>
-            <a th:href="'/professors/'+${el.id}+'/edit'" class="btn btn-warning">Edit</a> <br><br>
-            <form th:action="'/professors/'+${el.id}+'/remove'" method="post">
-                <button class="btn btn-danger" type="submit">Delete</button>
+        <h1>Subject</h1>
+        <div th:each="el : ${subject}">
+            <form method="post">
+                <input type="text" th:value="${el.name}" name="name" placeholder="Subject" class="form-control"><br>
+                <button type="submit" class="btn btn-success">Update</button>
             </form>
         </div>
     </div>

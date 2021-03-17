@@ -20,11 +20,10 @@
                 <button class="btn btn-success"><a class="p-2 text-dark" href="/groups">Groups</a></button>
             </nav>
         </div>
-        <div th:each="el : ${professor}" class="alert alert-info mt-5">
+        <div th:each="el : ${subject}" class="alert alert-info mt-5">
             <h3 th:text="${el.name}"></h3>
-            <h3 th:text="${el.email}" style="color: black; font-size: medium" ></h3>
-            <a th:href="'/professors/'+${el.id}+'/edit'" class="btn btn-warning">Edit</a> <br><br>
-            <form th:action="'/professors/'+${el.id}+'/remove'" method="post">
+            <a th:href="'/subjects/'+${el.id}+'/edit'" class="btn btn-warning">Edit</a> <br><br>
+            <form th:action="'/subjects/'+${el.id}+'/remove'" method="post">
                 <button class="btn btn-danger" type="submit">Delete</button>
             </form>
         </div>

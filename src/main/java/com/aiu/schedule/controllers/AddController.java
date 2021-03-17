@@ -127,7 +127,7 @@ public class AddController {
     }
 
     @PostMapping("/professors/{id}/edit")
-    public String addProfUdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String email, Model model) throws NotFoundException {
+    public String allProfUdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String email, Model model) throws NotFoundException {
         Professor professor = professorRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
         professor.setName(name);
         professor.setEmail(email);
@@ -136,9 +136,85 @@ public class AddController {
     }
 
     @PostMapping("/professors/{id}/remove")
-    public String addProfDelete(@PathVariable(value = "id") long id, Model model) throws NotFoundException {
+    public String allProfDelete(@PathVariable(value = "id") long id, Model model) throws NotFoundException {
         Professor professor = professorRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
         professorRepository.delete(professor);
         return "redirect:/professors";
+    }
+
+    @GetMapping("/subjects/{id}")
+    public String allSubDetail(@PathVariable(value = "id") long id, Model model) {
+        if(!subjectRepository.existsById(id)){
+            return "redirect:/subjects";
+        }
+        Optional<Subject> subject = subjectRepository.findById(id);
+        ArrayList<Subject> res = new ArrayList<>();
+        subject.ifPresent(res::add);
+        model.addAttribute("subject", res);
+        return "sub-details";
+    }
+
+    @GetMapping("/subjects/{id}/edit")
+    public String allSubEdit(@PathVariable(value = "id") long id, Model model) {
+        if(!subjectRepository.existsById(id)){
+            return "redirect:/subjects";
+        }
+        Optional<Subject> subject = subjectRepository.findById(id);
+        ArrayList<Subject> res = new ArrayList<>();
+        subject.ifPresent(res::add);
+        model.addAttribute("subject", res);
+        return "sub-edit";
+    }
+    @PostMapping("/subjects/{id}/edit")
+    public String allSubUdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String email, Model model) throws NotFoundException {
+        Subject subject = subjectRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
+        subject.setName(name);
+        subjectRepository.save(subject);
+        return "redirect:/subjects";
+    }
+
+    @PostMapping("/subjects/{id}/remove")
+    public String allSubDelete(@PathVariable(value = "id") long id, Model model) throws NotFoundException {
+        Subject subject = subjectRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
+        subjectRepository.delete(subject);
+        return "redirect:/subjects";
+    }
+
+    @GetMapping("/groups/{id}")
+    public String allGroupDetail(@PathVariable(value = "id") long id, Model model) {
+        if(!groupRepository.existsById(id)){
+            return "redirect:/groups";
+        }
+        Optional<Groups> group = groupRepository.findById(id);
+        ArrayList<Groups> res = new ArrayList<>();
+        group.ifPresent(res::add);
+        model.addAttribute("group", res);
+        return "group-details";
+    }
+
+    @GetMapping("/groups/{id}/edit")
+    public String allGroupEdit(@PathVariable(value = "id") long id, Model model) {
+        if(!groupRepository.existsById(id)){
+            return "redirect:/groups";
+        }
+        Optional<Groups> gourp = groupRepository.findById(id);
+        ArrayList<Groups> res = new ArrayList<>();
+        gourp.ifPresent(res::add);
+        model.addAttribute("group", res);
+        return "group-edit";
+    }
+    @PostMapping("/groups/{id}/edit")
+    public String allGroupUdate(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String email, Model model) throws NotFoundException {
+        Groups group = groupRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
+        group.setGroups(name);
+        groupRepository.save(group);
+        return "redirect:/groups";
+    }
+
+    @PostMapping("/groups/{id}/remove")
+    public String allGroupDelete(@PathVariable(value = "id") long id, Model model) throws NotFoundException {
+        Groups group = groupRepository.findById(id).orElseThrow(()->new NotFoundException("id not found"+id));
+        groupRepository.delete(group);
+        return "redirect:/groups";
     }
 }
