@@ -62,7 +62,7 @@ public class AddController {
 
     @GetMapping("/add")
     public String addMain(Model model){
-        model.addAttribute("title", "All all");
+        model.addAttribute("title", "Add data");
         return "add";
     }
 
@@ -105,7 +105,7 @@ public class AddController {
     @GetMapping("/professors/{id}")
     public String allProfDetail(@PathVariable(value = "id") long id, Model model) {
         if(!professorRepository.existsById(id)){
-            return "redirect:/all-main-prof";
+            return "redirect:/professors";
         }
         Optional<Professor> professor = professorRepository.findById(id);
         ArrayList<Professor> res = new ArrayList<>();
@@ -117,7 +117,7 @@ public class AddController {
     @GetMapping("/professors/{id}/edit")
     public String allProfEdit(@PathVariable(value = "id") long id, Model model) {
         if(!professorRepository.existsById(id)){
-            return "redirect:/all-main-prof";
+            return "redirect:/professors";
         }
         Optional<Professor> professor = professorRepository.findById(id);
         ArrayList<Professor> res = new ArrayList<>();
