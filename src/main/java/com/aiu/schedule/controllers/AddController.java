@@ -10,10 +10,7 @@ import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -112,6 +109,19 @@ public class AddController {
         professor.ifPresent(res::add);
         model.addAttribute("professor", res);
         return "prof-details";
+    }
+
+    @PutMapping("/professors/{id}")
+    Professor put(@RequestBody Professor replaceProfessor, @PathVariable Long id){
+        return professorRepository.findById(id).map(professor -> {
+            professor.setName(replaceProfessor.getName());
+            professor.setEmail(replaceProfessor.getEmail());
+            //another possible option
+//            employee =replaceEmployee;
+//            employee.setId(id);
+            return professorRepository.save(professor);
+        }).orElseGet(()->{replaceProfessor.setId(id); return professorRepository.save(replaceProfessor);});
+        //orElseGet(()->new EmployeeNotFoundException(id)); - returns "Cold not find employee {id}
     }
 
     @GetMapping("/professors/{id}/edit")
