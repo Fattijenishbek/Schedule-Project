@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/home.css">
 </head>
 <body>
-<header th:insert="blocks/inerhead::header"></header>
+<header th:insert="blocks/innerhead::header"></header>
 <div class="container mt-5">
     <h1>See all data</h1>
     <div class="container mt-5 mb-5 box">
@@ -20,7 +20,7 @@
                 <button class="btn btn-success"><a class="p-2 text-dark" href="/groups">Groups</a></button>
             </nav>
         </div>
-        <div th:each="el : ${group}" class="alert alert-info mt-5">
+        <div th:each="el : ${groups}" class="alert alert-info mt-5">
             <h3 th:text="${el.groups}"></h3>
             <a th:href="'/groups/'+${el.id}+'/edit'" class="btn btn-warning">Edit</a> <br><br>
             <form th:action="'/groups/'+${el.id}+'/remove'" method="post">

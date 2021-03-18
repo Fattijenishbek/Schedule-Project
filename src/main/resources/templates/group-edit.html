@@ -21,7 +21,7 @@
             </nav>
         </div>
         <h1>Group</h1>
-        <div th:each="el : ${group}">
+        <div th:each="el : ${groups}">
             <form method="post">
                 <input type="text" th:value="${el.groups}" name="name" placeholder="Subject" class="form-control"><br>
                 <button type="submit" class="btn btn-success">Update</button>
