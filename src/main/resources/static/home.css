@@ -68,4 +68,22 @@ span > a{
     margin-left: 50%;
 }
 
+.credit6{
+    color: black;
+    font-size: small;
+    background-color: yellow;
+}
+
+.credit4{
+    color: black;
+    font-size: small;
+    background-color: skyblue;
+}
+
+.credit2{
+    color: black;
+    font-size: small;
+    background-color: palegreen;
+}
+
 
