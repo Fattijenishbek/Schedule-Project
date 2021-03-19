@@ -86,4 +86,20 @@ span > a{
     background-color: palegreen;
 }
 
+.bodyErr{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+    min-height: 100vh;
+    background-image: linear-gradient(125deg,red,white, greenyellow);
+}
 
+.cont1{
+
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #343434
+}
