@@ -16,11 +16,11 @@
 * To view only professors from database: **/professors**
 * To view only subjects from database: **/subjects**
 * To view only groups from database: **/groups**
-* To view one data with more information: for professors -> **/subjects/{id}** for subjects -> **subjects/{id}** for groups -> **groups{id}**
-* To add new data using **POST** request: for professors -> **/professors-add** for subjects -> **subjects-add** for groups -> **groups-add**
+* To view one data with more information: for professors -> **/subjects/{id}** for subjects -> **/subjects/{id}** for groups -> **/groups/{id}**
+* To add new data using **POST** request: for professors -> **/professors-add** for subjects -> **/subjects-add** for groups -> **/groups-add**
 * To **edit** one separated data by using POST request: 
-      for professors -> **/professors/{id}/edit** for subjects -> **subjects/{id}/edit** for groups -> **groups/{id}edit**
+      for professors -> **/professors/{id}/edit** for subjects -> **subjects/{id}/edit** for groups -> **/groups/{id}/edit**
 * To **delete** one separated data by using POST request:
-      for professors -> **/professors/{id}/edit** for subjects -> **subjects/{id}/edit** for groups -> **groups/{id}edit**
+      for professors -> **/professors/{id}/edit** for subjects -> **/subjects/{id}/edit** for groups -> **/groups/{id}/edit**
 
 Now, you can just add and see data, but soon it will be available to autogenerate the schedule for universities:)
