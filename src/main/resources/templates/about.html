@@ -13,11 +13,20 @@
 <div class="container mt-5">
     <h1 th:text="${title}"></h1>
     <p>This site for the autogenerating schedule at universities</p>
-    <h3>GET:</h3>
-    <p>to see all data : /all</p>
-    <p>to see only professors: /professors</p>
-    <p>to see only subjects: /subjects</p>
-    <p>to see only groups: /groups</p>
+    <h3>API Description:</h3>
+    <p>To view schedule: <b>/</b></p>
+    <p>To view schedule: <b>/all</b></p>
+    <p>To view only professors from database: <b>/professors</b></p>
+    <p>To view only subjects from database: <b>/subjects</b></p>
+    <p>To view only groups from database: <b>/groups</b></p>
+    <p>To view one data with more information: for professors -> <b>/professors/{id}</b> for subjects -> <b>/subjects/{id}</b>
+        for groups -> <b>/groups/{id}</b></p>
+    <p>To add new data using <b>POST </b>request: for professors -> <b>/professors-add</b>
+        for subjects -> <b>/subjects-add </b>for groups -> <b>/groups-add</b></p>
+    <p>To <b>edit </b>one separated data by using POST request: for professors -> <b>/professors/{id}/edit</b>
+        for subjects -> <b>/subjects/{id}/edit </b>for groups -> <b>/groups/{id}/edit</b></p>
+    <p>To <b>delete </b>one separated data by using POST request: for professors -> <b>/professors/{id}/remove</b>
+        for subjects -> <b>/subjects/{id}/remove </b>for groups -> <b>/groups/{id}/remove</b></p>
 </div>
 <div th:insert="blocks/footer :: footer"></div>
 </body>
